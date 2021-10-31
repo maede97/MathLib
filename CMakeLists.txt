@@ -7,9 +7,6 @@ set (CMAKE_CXX_STANDARD 17)
 add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME} INTERFACE include)
 
-add_executable(example example.cpp)
-target_link_libraries(example ${PROJECT_NAME})
-
 option(BUILD_TESTS "Build Unittests" OFF)
 
 if(${BUILD_TESTS})
