@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#include <limits>
 #include <numeric>
 #include <stdexcept>
 #include <vector>
@@ -10,6 +11,11 @@
 template <unsigned N, typename T>
 class Vector {
 public:
+    using type = T;
+    static unsigned size() {
+        return N;
+    }
+
     // Constructors
     Vector() {
         for (unsigned i = 0; i < N; ++i)
@@ -38,12 +44,12 @@ public:
             m_data[i] = data[i];
     }
 
-    ~Vector() = default;
-
-    // info about this
-    unsigned size() const {
-        return N;
+    Vector &operator=(Vector &other) {
+        std::copy(other.m_data, other.m_data + N, m_data);
+        return *this;
     }
+
+    ~Vector() = default;
 
     // Norm
     T norm() const {
@@ -105,6 +111,42 @@ public:
         return m_data[idx];
     }
 
+    T x() const {
+        if (N < 1)
+            throw std::runtime_error("x() not supported for vectors with size 0");
+        return m_data[0];
+    }
+
+    T &x() {
+        if (N < 1)
+            throw std::runtime_error("x() not supported for vectors with size 0");
+        return m_data[0];
+    }
+
+    T y() const {
+        if (N < 2)
+            throw std::runtime_error("y() not supported for vectors with size 1");
+        return m_data[1];
+    }
+
+    T &y() {
+        if (N < 2)
+            throw std::runtime_error("y() not supported for vectors with size 1");
+        return m_data[1];
+    }
+
+    T z() const {
+        if (N < 3)
+            throw std::runtime_error("z() not supported for vectors with size 2");
+        return m_data[2];
+    }
+
+    T &z() {
+        if (N < 3)
+            throw std::runtime_error("z() not supported for vectors with size 2");
+        return m_data[2];
+    }
+
     // Math ops
     T sum() const {
         return std::accumulate(m_data, m_data + N, T(0.));
@@ -126,19 +168,14 @@ public:
     }
 
     T &minCoeff() {
-        return std::min_element(m_data, m_data + N);
+        return *std::min_element(m_data, m_data + N);
     }
 
     T &maxCoeff() {
-        return std::max_element(m_data, m_data + N);
+        return *std::max_element(m_data, m_data + N);
     }
 
     // Operators
-    Vector &operator=(Vector &other) {
-        std::copy(other.m_data, other.m_data + N, m_data);
-        return *this;
-    }
-
     Vector &operator+=(const Vector &other) {
         for (unsigned i = 0; i < N; ++i)
             m_data[i] += other.m_data[i];
@@ -189,15 +226,6 @@ public:
         return *this;
     }
 
-    bool operator==(const Vector &other) const {
-        Vector diff = *this - other;
-        return diff.squaredNorm() < 1e-10;
-    }
-
-    bool operator!=(const Vector &other) const {
-        return !(*this == other);
-    }
-
     // Head / tail / segment
     template <unsigned n>
     Vector<n, T> head() const {
@@ -234,20 +262,54 @@ public:
         unsigned m_i;
         CommaLoader(Vector &v, unsigned i) : m_v(v), m_i(i) {}
         CommaLoader operator,(T value) {
+            m_v.assert_idx(m_i);
             m_v.at(m_i) = value;
             return CommaLoader(m_v, m_i + 1);
         }
     };
     CommaLoader operator<<(T value) {
+        assert_idx(0);
         m_data[0] = value;
         return CommaLoader(*this, 1);
+    }
+
+    template <typename S>
+    Vector<N, S> cast() const {
+        Vector<N, S> ret;
+        for (unsigned i = 0; i < N; ++i)
+            ret[i] = static_cast<S>(m_data[i]);
+        return ret;
+    }
+
+    friend bool operator==(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
+        for (unsigned i = 0; i < N; ++i)
+            if (fabs(lhs[i] - rhs[i]) > std::numeric_limits<double>::epsilon())
+                return false;
+        return true;
+    }
+
+    friend bool operator!=(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
+        return !(lhs == rhs);
+    }
+
+    friend std::ostream &operator<<(std::ostream &os, const Vector<N, T> &v) {
+        for (unsigned i = 0; i < N; ++i) {
+            os << v[i];
+            if (i < N - 1)
+                os << " ";
+        }
+        return os;
+    }
+
+    friend std::istream &operator>>(std::istream &os, Vector<N, T> &v) {
+        for (unsigned i = 0; i < N; ++i)
+            os >> v[i];
+        return os;
     }
 
 private:
     void assert_idx(unsigned idx) const {
         // make use of the fact that a const char* literal evaluates to true
-        if (idx < 0)
-            throw std::runtime_error("idx < 0");
         if (idx >= N)
             throw std::runtime_error("idx >= N");
     }

@@ -14,3 +14,7 @@ using Vector3d = Vector<3, double>;
 using Vector1i = Vector<1, int>;
 using Vector2i = Vector<2, int>;
 using Vector3i = Vector<3, int>;
+
+using Vector1u = Vector<1, unsigned>;
+using Vector2u = Vector<2, unsigned>;
+using Vector3u = Vector<3, unsigned>;

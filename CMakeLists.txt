@@ -9,3 +9,9 @@ target_include_directories(${PROJECT_NAME} INTERFACE include)
 
 add_executable(example example.cpp)
 target_link_libraries(example ${PROJECT_NAME})
+
+option(BUILD_TESTS "Build Unittests" OFF)
+
+if(${BUILD_TESTS})
+    add_subdirectory(tests)
+endif(${BUILD_TESTS})
