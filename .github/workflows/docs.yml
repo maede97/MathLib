@@ -9,12 +9,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Build project
-      uses: nicledomaS/cmake_build_action@v1.4
+    - name: Build Documentation
+      uses: mattnotmitt/doxygen-action@v1.2.3
       with:
-        cmake_args: -DBUILD_DOCS=ON
+        working-directory: 'docs'
+        doxyfile-path: 'Doxyfile.in'
     - name: Publishing Documentation
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: build/docs/doc_doxygen/html
+        publish_dir: docs/html
