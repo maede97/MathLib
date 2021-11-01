@@ -61,4 +61,4 @@ Run doxygen on the doxygen file which can be found in the `docs` folder.
 A hosted online version can be found [here](https://maede97.github.io/MathLib/).
 
 ## Unittests
-Run CMake with `-DBUILD_TESTS=ON`, then execute the build binary `./tests/unittests`.
+Run CMake with `-DMATHLIB_BUILD_TESTS=ON`, then execute the build binary `./tests/unittests`.
