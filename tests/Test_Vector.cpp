@@ -110,10 +110,6 @@ TEST(Vector, OperatorAccess) {
     EXPECT_DOUBLE_EQ(v2(1), 2.);
     EXPECT_DOUBLE_EQ(v2(2), 0.);
 
-    EXPECT_NO_THROW(v2.at(1));
-    EXPECT_THROW(v2.at(4), std::runtime_error);
-    EXPECT_THROW(v2.at(3), std::runtime_error);
-
     EXPECT_DOUBLE_EQ(v2.x(), 1.);
     EXPECT_DOUBLE_EQ(v2.y(), 2.);
     EXPECT_DOUBLE_EQ(v2.z(), 0.);
@@ -123,18 +119,6 @@ TEST(Vector, OperatorAccess) {
     EXPECT_DOUBLE_EQ(v2.x(), 1.);
     EXPECT_DOUBLE_EQ(v2.y(), 2.);
     EXPECT_DOUBLE_EQ(v2.z(), 3.);
-
-    Vector2d v3;
-    EXPECT_THROW(v3.z(), std::runtime_error);
-
-    Vector1d v4;
-    EXPECT_THROW(v4.y(), std::runtime_error);
-    EXPECT_THROW(v4.z(), std::runtime_error);
-
-    Vector<0, double> v5;
-    EXPECT_THROW(v5.x(), std::runtime_error);
-    EXPECT_THROW(v5.y(), std::runtime_error);
-    EXPECT_THROW(v5.z(), std::runtime_error);
 }
 
 TEST(Vector, Sum) {

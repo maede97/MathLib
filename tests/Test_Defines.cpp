@@ -2,26 +2,26 @@
 #include <mathlib/defines.h>
 
 TEST(Defines, Size) {
-    EXPECT_EQ(Vector1d().size(), 1);
-    EXPECT_EQ(Vector2d().size(), 2);
-    EXPECT_EQ(Vector3d().size(), 3);
+    EXPECT_EQ(Vector1d::size(), 1);
+    EXPECT_EQ(Vector2d::size(), 2);
+    EXPECT_EQ(Vector3d::size(), 3);
 
-    EXPECT_EQ(Vector1f().size(), 1);
-    EXPECT_EQ(Vector2f().size(), 2);
-    EXPECT_EQ(Vector3f().size(), 3);
+    EXPECT_EQ(Vector1f::size(), 1);
+    EXPECT_EQ(Vector2f::size(), 2);
+    EXPECT_EQ(Vector3f::size(), 3);
 
-    EXPECT_EQ(Vector1i().size(), 1);
-    EXPECT_EQ(Vector2i().size(), 2);
-    EXPECT_EQ(Vector3i().size(), 3);
+    EXPECT_EQ(Vector1i::size(), 1);
+    EXPECT_EQ(Vector2i::size(), 2);
+    EXPECT_EQ(Vector3i::size(), 3);
 
-    EXPECT_EQ(Vector1u().size(), 1);
-    EXPECT_EQ(Vector2u().size(), 2);
-    EXPECT_EQ(Vector3u().size(), 3);
+    EXPECT_EQ(Vector1u::size(), 1);
+    EXPECT_EQ(Vector2u::size(), 2);
+    EXPECT_EQ(Vector3u::size(), 3);
 
-    EXPECT_EQ((Vector<10, double>().size()), 10);
-    EXPECT_EQ((Vector<10, float>().size()), 10);
-    EXPECT_EQ((Vector<10, int>().size()), 10);
-    EXPECT_EQ((Vector<10, unsigned>().size()), 10);
+    EXPECT_EQ((Vector<10, double>::size()), 10);
+    EXPECT_EQ((Vector<10, float>::size()), 10);
+    EXPECT_EQ((Vector<10, int>::size()), 10);
+    EXPECT_EQ((Vector<10, unsigned>::size()), 10);
 }
 
 TEST(Defines, Type) {

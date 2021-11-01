@@ -1,10 +1,12 @@
-#pragma once
+#ifndef __MATHLIB_VECTOR_H__
+#define __MATHLIB_VECTOR_H__
 
 #include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <limits>
 #include <numeric>
+#include <ostream>
 #include <stdexcept>
 #include <vector>
 
@@ -12,36 +14,30 @@ template <unsigned N, typename T>
 class Vector {
 public:
     using type = T;
-    static unsigned size() {
+    constexpr static unsigned size() {
         return N;
     }
 
     // Constructors
     Vector() {
-        for (unsigned i = 0; i < N; ++i)
-            m_data[i] = 0.;
+        std::fill(m_data, m_data + N, T(0.));
     }
 
     Vector(T t) {
-        for (unsigned i = 0; i < N; ++i)
-            m_data[i] = t;
+        std::fill(m_data, m_data + N, t);
     }
 
     Vector(std::vector<T> data) {
         assert(data.size() == N);
-
-        for (unsigned i = 0; i < N; ++i)
-            m_data[i] = data[i];
+        std::copy(data.begin(), data.end(), m_data);
     }
 
     Vector(const Vector &other) {
-        for (unsigned i = 0; i < N; ++i)
-            m_data[i] = other.m_data[i];
+        std::copy(other.m_data, other.m_data + N, m_data);
     }
 
     Vector(T data[N]) {
-        for (unsigned i = 0; i < N; ++i)
-            m_data[i] = data[i];
+        std::copy(data, data + N, m_data);
     }
 
     Vector &operator=(Vector &other) {
@@ -77,11 +73,11 @@ public:
 
     Vector normalized() const {
         static_assert(std::is_floating_point<T>::value, "base type is not floating point.");
-        T dat[N];
+        Vector ret;
         T inv_norm = T(1.0) / norm();
         for (unsigned i = 0; i < N; ++i)
-            dat[i] = m_data[i] * inv_norm;
-        return Vector(dat);
+            ret[i] = m_data[i] * inv_norm;
+        return ret;
     }
 
     // Access
@@ -112,38 +108,32 @@ public:
     }
 
     T x() const {
-        if (N < 1)
-            throw std::runtime_error("x() not supported for vectors with size 0");
+        static_assert(N >= 1 && "x() not supported for vectors with size 0");
         return m_data[0];
     }
 
     T &x() {
-        if (N < 1)
-            throw std::runtime_error("x() not supported for vectors with size 0");
+        static_assert(N >= 1 && "x() not supported for vectors with size 0");
         return m_data[0];
     }
 
     T y() const {
-        if (N < 2)
-            throw std::runtime_error("y() not supported for vectors with size 1");
+        static_assert(N >= 2 && "y() not supported for vectors with size 1 or less");
         return m_data[1];
     }
 
     T &y() {
-        if (N < 2)
-            throw std::runtime_error("y() not supported for vectors with size 1");
+        static_assert(N >= 2 && "y() not supported for vectors with size 1 or less");
         return m_data[1];
     }
 
     T z() const {
-        if (N < 3)
-            throw std::runtime_error("z() not supported for vectors with size 2");
+        static_assert(N >= 3 && "z() not supported for vectors with size 2 or less");
         return m_data[2];
     }
 
     T &z() {
-        if (N < 3)
-            throw std::runtime_error("z() not supported for vectors with size 2");
+        static_assert(N >= 3 && "z() not supported for vectors with size 2 or less");
         return m_data[2];
     }
 
@@ -229,7 +219,7 @@ public:
     // Head / tail / segment
     template <unsigned n>
     Vector<n, T> head() const {
-        assert(n <= N && "n > N");
+        static_assert(n <= N && "n > N");
         Vector<n, T> ret;
         for (unsigned i = 0; i < n; ++i) {
             ret[i] = m_data[i];
@@ -238,7 +228,7 @@ public:
     }
     template <unsigned n>
     Vector<n, T> tail() const {
-        assert(n <= N && "n > N");
+        static_assert(n <= N && "n > N");
         Vector<n, T> ret;
         for (unsigned i = 0; i < n; ++i) {
             ret[i] = m_data[i + N - n];
@@ -247,7 +237,7 @@ public:
     }
     template <unsigned s, unsigned n>
     Vector<n, T> segment() const {
-        assert(n <= N && n + s <= N && "n > N or + s > N");
+        static_assert(n <= N && n + s <= N && "n > N or + s > N");
         Vector<n, T> ret;
         for (unsigned i = 0; i < n; ++i) {
             ret[i] = m_data[i + s];
@@ -281,6 +271,7 @@ public:
         return ret;
     }
 
+    // Comparison
     friend bool operator==(const Vector<N, T> &lhs, const Vector<N, T> &rhs) {
         for (unsigned i = 0; i < N; ++i)
             if (fabs(lhs[i] - rhs[i]) > std::numeric_limits<double>::epsilon())
@@ -292,6 +283,7 @@ public:
         return !(lhs == rhs);
     }
 
+    // Write & Read
     friend std::ostream &operator<<(std::ostream &os, const Vector<N, T> &v) {
         for (unsigned i = 0; i < N; ++i) {
             os << v[i];
@@ -307,9 +299,14 @@ public:
         return os;
     }
 
+    // Custom functions for specializations
+    Vector cross(const Vector &other) {
+        static_assert(N == 3 && "cross is only defined for Vectors with size 3.");
+        return Vector();
+    }
+
 private:
     void assert_idx(unsigned idx) const {
-        // make use of the fact that a const char* literal evaluates to true
         if (idx >= N)
             throw std::runtime_error("idx >= N");
     }
@@ -317,3 +314,5 @@ private:
 private:
     T m_data[N];
 };
+
+#endif /* __MATHLIB_VECTOR_H__ */
