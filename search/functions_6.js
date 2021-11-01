@@ -11,6 +11,6 @@ var searchData=
   ['operator_2f_8',['operator/',['../operators_8h.html#a45dc68916e79767b25b5d54ad59fcf72',1,'operator/():&#160;operators.h'],['../classVector.html#a2c863149b6534daa4382e2d5a72aaeb2',1,'Vector::operator/(const T &amp;value)']]],
   ['operator_2f_3d_9',['operator/=',['../classVector.html#a8b702bc6086fad9c28b6a44151ac415d',1,'Vector']]],
   ['operator_3c_3c_10',['operator&lt;&lt;',['../classVector.html#a8a01cfbd8953079c8a2a5407de6ed59b',1,'Vector']]],
-  ['operator_3d_11',['operator=',['../classVector.html#ad68a125ea5726eb1b4ff183eae353723',1,'Vector']]],
+  ['operator_3d_11',['operator=',['../classVector.html#a8ac3a047f03a76bd443afd2cd749a489',1,'Vector::operator=(const Vector &amp;other)'],['../classVector.html#ad68a125ea5726eb1b4ff183eae353723',1,'Vector::operator=(Vector &amp;other)']]],
   ['operator_5b_5d_12',['operator[]',['../classVector.html#a22af0195fa0b55c1d157d1693e8da035',1,'Vector::operator[](unsigned idx) const'],['../classVector.html#a4f3c53a61bdf7e506251dc02c8efc8d3',1,'Vector::operator[](unsigned idx)']]]
 ];
