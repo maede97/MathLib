@@ -33,7 +33,7 @@ target_link_libraries(YOUR_EXECUTABLE PUBLIC mathlib)
 int main()
 {
     Vector3d v1(1.0);
-    Vector3d v2({1.0, 2.0, 3.0});
+    Vector3d v2(1.0, 2.0, 3.0);
 
     std::cout << v1 + v2 << std::endl; // 2 3 4
 
