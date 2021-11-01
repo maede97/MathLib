@@ -70,26 +70,6 @@ public:
     }
 
     /**
-     * @brief Copy a vector into this.
-     * @param other The other vector
-     * @return A reference to this.
-     */
-    Vector &operator=(Vector &other) {
-        std::copy(other.m_data, other.m_data + N, m_data);
-        return *this;
-    }
-
-    /**
-     * @brief Copy a vector into this.
-     * @param other The other vector
-     * @return A reference to this.
-     */
-    Vector &operator=(const Vector &other) {
-        std::copy(other.m_data, other.m_data + N, m_data);
-        return *this;
-    }
-
-    /**
      * @brief Default deconstructor.
      */
     ~Vector() = default;
