@@ -73,12 +73,67 @@ $(function() {
   <div class="headertitle"><div class="title">MathLib - Header-Only Templated <a class="el" href="classVector.html" title="Vector class.">Vector</a> Library in C++ </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md__github_workspace_README"></a><a href="https://github.com/maede97/MathLib/actions/workflows/test.yml"><img src="https://github.com/maede97/MathLib/actions/workflows/test.yml/badge.svg" alt="Unittests" style="pointer-events: none;" class="inline"/></a> </p>
+<div class="textblock"><p ><a class="anchor" id="md__github_workspace_README"></a><a href="https://github.com/maede97/MathLib/actions/workflows/test.yml"><img src="https://github.com/maede97/MathLib/actions/workflows/test.yml/badge.svg" alt="Unittests" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/maede97/MathLib/actions/workflows/docs.yml"><img src="https://github.com/maede97/MathLib/actions/workflows/docs.yml/badge.svg" alt="Documentation" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Setup</h1>
+<p >Put the following lines into your CMake project: </p><div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.11)</div>
+<div class="line"> </div>
+<div class="line">include(FetchContent)</div>
+<div class="line">FetchContent_Declare(</div>
+<div class="line">    mathlib</div>
+<div class="line">    GIT_REPOSITORY     https://github.com/maede97/MathLib.git</div>
+<div class="line">    GIT_TAG            master</div>
+<div class="line">)</div>
+<div class="line">FetchContent_GetProperties(mathlib)</div>
+<div class="line">if(NOT ${mathlib_POPULATED})</div>
+<div class="line">    message(STATUS &quot;fetching mathlib ...&quot;)</div>
+<div class="line">    FetchContent_Populate(mathlib)</div>
+<div class="line">endif()</div>
+<div class="line">mark_as_advanced(${mathlib_SOURCE_DIR})</div>
+<div class="line">add_subdirectory(${mathlib_SOURCE_DIR})</div>
+<div class="line"> </div>
+<div class="line"># Link to your executable</div>
+<div class="line">target_link_libraries(YOUR_EXECUTABLE PUBLIC mathlib)</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+Example</h1>
+<div class="fragment"><div class="line">#include &lt;mathlib/mathlib.h&gt;</div>
+<div class="line">#include &lt;iostream&gt;</div>
+<div class="line"> </div>
+<div class="line">int main()</div>
+<div class="line">{</div>
+<div class="line">    Vector3d v1(1.0);</div>
+<div class="line">    Vector3d v2({1.0, 2.0, 3.0});</div>
+<div class="line"> </div>
+<div class="line">    std::cout &lt;&lt; v1 + v2 &lt;&lt; std::endl; // 2 3 4</div>
+<div class="line"> </div>
+<div class="line">    std::cout &lt;&lt; v1.cross(v2) &lt;&lt; std::endl; // 1 -2 1</div>
+<div class="line"> </div>
+<div class="line">    Vector&lt;6, double&gt; v3;</div>
+<div class="line">    v3 &lt;&lt; 1.5, 2.5, 3.5, 1.0, 2.0, 3.0;</div>
+<div class="line"> </div>
+<div class="line">    bool compare_v1_v2 = (v1 == v2);</div>
+<div class="line">    std::cout &lt;&lt; compare_v1_v2 &lt;&lt; std::endl; // 0</div>
+<div class="line"> </div>
+<div class="line">    bool compare_v2_v3a = (v3.tail&lt;3&gt;() == v2);</div>
+<div class="line">    std::cout &lt;&lt; compare_v2_v3a &lt;&lt; std::endl; // 1</div>
+<div class="line"> </div>
+<div class="line">    Vector&lt;6, double&gt; half(0.5);</div>
+<div class="line">    bool compare_v2_v3b = ((v3.head&lt;3&gt;() - half.segment&lt;1, 3&gt;()) == v2);</div>
+<div class="line">    std::cout &lt;&lt; compare_v2_v3b &lt;&lt; std::endl; // 1</div>
+<div class="line"> </div>
+<div class="line">    return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Documentation</h1>
+<p >Run doxygen on the doxygen file which can be found in the <code>docs</code> folder. A hosted online version can be found <a href="https://maede97.github.io/MathLib/">here</a>.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Unittests</h1>
+<p >Run CMake with <code>-DBUILD_TESTS=ON</code>, then execute the build binary <code>./tests/unittests</code>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 1 2021 08:35:57 for MathLib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Mon Nov 1 2021 08:49:51 for MathLib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>
