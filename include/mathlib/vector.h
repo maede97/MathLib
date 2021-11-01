@@ -8,6 +8,7 @@
 #include <numeric>
 #include <ostream>
 #include <stdexcept>
+#include <string>
 #include <vector>
 
 /**
@@ -563,6 +564,20 @@ public:
         return os;
     }
 
+    /**
+     * @brief Return a string reprensetation of this.
+     * @return A string containing the values.
+     */
+    std::string to_string() const {
+        std::string ret;
+        for (unsigned i = 0; i < N; ++i) {
+            ret += std::to_string(m_data[i]);
+            if (i < N - 1)
+                ret += " ";
+        }
+        return ret;
+    }
+
 private:
     /**
      * @brief Assert a given index is in range.
@@ -575,7 +590,7 @@ private:
     }
 
 private:
-    T m_data[N]; ///< The underlying data.
+    T m_data[N];  ///< The underlying data.
 };
 
 #endif /* __MATHLIB_VECTOR_H__ */

@@ -280,3 +280,13 @@ TEST(Vector, Cross) {
     EXPECT_DOUBLE_EQ(v5.y(), 0.);
     EXPECT_DOUBLE_EQ(v5.z(), 0.);
 }
+
+TEST(Stream, ToString) {
+    Vector<3, double> v = Vector<3, double>({1., 2., 3.});
+    EXPECT_EQ(v.to_string(), std::string("1.000000 2.000000 3.000000"));
+
+    Vector<3, double> v2 = Vector<3, double>({1.5, 2.25, 3.75});
+    EXPECT_EQ(v2.to_string(), std::string("1.500000 2.250000 3.750000"));
+
+    EXPECT_EQ(v2.cast<int>().to_string(), std::string("1 2 3"));
+}
