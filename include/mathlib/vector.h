@@ -70,6 +70,32 @@ public:
     }
 
     /**
+     * @brief Construct a vector from given x and y values.
+     * @param x The x value
+     * @param y The y value
+     * @attention Only for size 2 vectors.
+     */
+    Vector(const T &x, const T &y) {
+        static_assert(N == 2 && "only for vectors with size 2");
+        m_data[0] = x;
+        m_data[1] = y;
+    }
+
+    /**
+     * @brief Construct a vector from given x, y and z values.
+     * @param x The x value
+     * @param y The y value
+     * @param z The z value
+     * @attention Only for size 3 vectors.
+     */
+    Vector(const T &x, const T &y, const T &z) {
+        static_assert(N == 3 && "only for vectors with size 3");
+        m_data[0] = x;
+        m_data[1] = y;
+        m_data[2] = z;
+    }
+
+    /**
      * @brief Default deconstructor.
      */
     ~Vector() = default;
