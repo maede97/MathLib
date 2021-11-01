@@ -259,3 +259,24 @@ TEST(Vector, Cast) {
     EXPECT_EQ(casted.y(), 2);
     EXPECT_EQ(casted.z(), 3);
 }
+
+TEST(Vector, Cross) {
+    Vector3d v1({1.5, 2.5, 3.5});
+    Vector3d v2({1., 1., 2.});
+
+    Vector3d v3 = v1.cross(v2);
+    Vector3d v4 = v2.cross(v1);
+    Vector3d v5 = v3.cross(v4);
+
+    EXPECT_DOUBLE_EQ(v3.x(), 1.5);
+    EXPECT_DOUBLE_EQ(v3.y(), 0.5);
+    EXPECT_DOUBLE_EQ(v3.z(), -1.);
+
+    EXPECT_DOUBLE_EQ(v4.x(), -1.5);
+    EXPECT_DOUBLE_EQ(v4.y(), -0.5);
+    EXPECT_DOUBLE_EQ(v4.z(), 1.);
+
+    EXPECT_DOUBLE_EQ(v5.x(), 0.);
+    EXPECT_DOUBLE_EQ(v5.y(), 0.);
+    EXPECT_DOUBLE_EQ(v5.z(), 0.);
+}

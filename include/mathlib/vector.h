@@ -302,7 +302,11 @@ public:
     // Custom functions for specializations
     Vector cross(const Vector &other) {
         static_assert(N == 3 && "cross is only defined for Vectors with size 3.");
-        return Vector();
+        Vector ret;
+        ret.x() = m_data[1] * other.z() - m_data[2] * other.y();
+        ret.y() = m_data[2] * other.x() - m_data[0] * other.z();
+        ret.z() = m_data[0] * other.y() - m_data[1] * other.x();
+        return ret;
     }
 
 private:
