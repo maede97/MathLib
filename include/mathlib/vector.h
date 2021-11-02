@@ -389,10 +389,11 @@ public:
      * @param value The scalar
      * @return A reference to this vector, with this * value.
      */
-    Vector &operator*(const T &value) {
+    Vector operator*(const T &value) const {
+        Vector ret;
         for (unsigned i = 0; i < N; ++i)
-            m_data[i] *= value;
-        return *this;
+            ret.m_data[i] = m_data[i] * value;
+        return ret;
     }
 
     /**
@@ -400,10 +401,11 @@ public:
      * @param value The scalar
      * @return A reference to this vector, with this + value.
      */
-    Vector &operator+(const T &value) {
+    Vector operator+(const T &value) const {
+        Vector ret;
         for (unsigned i = 0; i < N; ++i)
-            m_data[i] += value;
-        return *this;
+            ret.m_data[i] = m_data[i] + value;
+        return ret;
     }
 
     /**
@@ -411,10 +413,11 @@ public:
      * @param value The scalar
      * @return A reference to this vector, with this - value.
      */
-    Vector &operator-(const T &value) {
+    Vector operator-(const T &value) const {
+        Vector ret;
         for (unsigned i = 0; i < N; ++i)
-            m_data[i] -= value;
-        return *this;
+            ret.m_data[i] = m_data[i] - value;
+        return ret;
     }
 
     /**
@@ -423,11 +426,12 @@ public:
      * @return A reference to this vector, with this / value.
      * @attention Only for floating point types.
      */
-    Vector &operator/(const T &value) {
+    Vector operator/(const T &value) const {
         static_assert(std::is_floating_point<T>::value, "base type is not floating point.");
+        Vector ret;
         for (unsigned i = 0; i < N; ++i)
-            m_data[i] /= value;
-        return *this;
+            ret.m_data[i] = m_data[i] / value;
+        return ret;
     }
 
     /**
