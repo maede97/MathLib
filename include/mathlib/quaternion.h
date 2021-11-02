@@ -145,8 +145,11 @@ public:
     /**
      * @brief The current axis of the quaternion
      * @return The axis of the quaternion rotation.
+     * @todo Check if the 0-vector fix is valid.
      */
     Vector3_t axis() const {
+        if (vec().squaredNorm() < std::numeric_limits<double>::epsilon())
+            return Vector3_t(1., 0., 0.);
         return vec().normalized();
     }
 };
