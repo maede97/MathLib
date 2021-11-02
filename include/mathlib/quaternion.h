@@ -10,6 +10,7 @@
  * @brief %Quaternion class
  * @tparam T The underlying data type.
  * @attention Data type must be floating point.
+ * @attention Also supports all other functions of a Vector<4, T>, but use with caution!
  */
 template <typename T, typename std::enable_if<std::is_floating_point<T>::value>::type* = nullptr>
 class Quaternion : public Vector<4, T> {
