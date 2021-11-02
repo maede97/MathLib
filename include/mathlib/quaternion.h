@@ -2,7 +2,6 @@
 #define __MATHLIB_QUATERNION_H__
 
 #include <mathlib/operators.h>
-#include <mathlib/vector.h>
 
 #include <cmath>
 
@@ -15,7 +14,7 @@
 template <typename T, typename std::enable_if<std::is_floating_point<T>::value>::type* = nullptr>
 class Quaternion : public Vector<4, T> {
 public:
-    using vec_t = Vector<3, T>;  ///< Helper for the vector part
+    using Vector3_t = Vector<3, T>;  ///< Helper for the vector part
 
     /**
      * @brief Create a quaternion from given values.
@@ -31,7 +30,7 @@ public:
      * @param axis The axis, will be normalized.
      * @param angle The angle (in radians) of the rotation.
      */
-    Quaternion(const vec_t& axis, T angle) {
+    Quaternion(const Vector3_t& axis, T angle) {
         w() = std::cos(angle / T(2.));
         setVec(std::sin(angle / T(2.)) * axis.normalized());
     }
@@ -40,6 +39,12 @@ public:
      * @brief Create a zero quaternion.
      */
     Quaternion() = default;
+
+    /**
+     * @brief Create a quaternion from another quaternion
+     * @param other The other quaternion.
+     */
+    Quaternion(const Quaternion& other) : Vector<4, T>({other.x(), other.y(), other.z(), other.w()}) {}
 
     /**
      * @brief Default deconstructor
@@ -75,7 +80,7 @@ public:
      * @param other The vector to rotate
      * @return The rotated vector.
      */
-    vec_t operator*(const vec_t& other) const {
+    Vector3_t operator*(const Vector3_t& other) const {
         return other + T(2.) * vec().cross(w() * other + vec().cross(other)) / (*this).squaredNorm();
     }
 
@@ -115,15 +120,15 @@ public:
      * @brief Read access to the vector component.
      * @return The vector component.
      */
-    vec_t vec() const {
-        return vec_t((*this).x(), (*this).y(), (*this).z());
+    Vector3_t vec() const {
+        return Vector3_t((*this).x(), (*this).y(), (*this).z());
     }
 
     /**
      * @brief Write access to the vector component.
      * @param vec The new vector component.
      */
-    void setVec(const vec_t& vec) {
+    void setVec(const Vector3_t& vec) {
         (*this).x() = vec.x();
         (*this).y() = vec.y();
         (*this).z() = vec.z();
@@ -141,7 +146,7 @@ public:
      * @brief The current axis of the quaternion
      * @return The axis of the quaternion rotation.
      */
-    vec_t axis() const {
+    Vector3_t axis() const {
         return vec().normalized();
     }
 };

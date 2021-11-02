@@ -4,5 +4,7 @@
 #include <mathlib/defines.h>
 #include <mathlib/operators.h>
 #include <mathlib/vector.h>
+#include <mathlib/quaternion.h>
+
 
 #endif /* __MATHLIB_MATHLIB_H__  */
