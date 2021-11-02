@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x_0',['x',['../classVector.html#a5837333d2c741be75aa72a2c66eb84d8',1,'Vector::x() const'],['../classVector.html#a0a2303468bfb1cd4088a566929a7ffec',1,'Vector::x()']]]
+  ['tail_0',['tail',['../classVector.html#a2845a526b73aca5f9afbd195130247bc',1,'Vector']]],
+  ['to_5fstring_1',['to_string',['../classVector.html#abe4dfd337f1d427866b45353806c77e4',1,'Vector']]]
 ];

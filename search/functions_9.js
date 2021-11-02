@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['vector_0',['Vector',['../classVector.html#a44a484c45f3faf917be88c1ccebdafc8',1,'Vector::Vector()'],['../classVector.html#aa338d39e51a34b299f1b0dd240863cc4',1,'Vector::Vector(T t)'],['../classVector.html#ad702aa9f09f9d01b5e52209ed9530e0c',1,'Vector::Vector(std::vector&lt; T &gt; data)'],['../classVector.html#abefdae9f8d01f6bcc2872beba30da08b',1,'Vector::Vector(const Vector &amp;other)'],['../classVector.html#a86b6a972b0c65cf0eae9d4b396205781',1,'Vector::Vector(T data[N])'],['../classVector.html#afea7b74d10af53dfdef051518fe08a30',1,'Vector::Vector(const T &amp;x, const T &amp;y)'],['../classVector.html#a8f7c56606cc98ff3a9549bdf0fdb8a72',1,'Vector::Vector(const T &amp;x, const T &amp;y, const T &amp;z)']]]
+  ['segment_0',['segment',['../classVector.html#ab24aeb1bca1b5ac5f9861bab22d97ff4',1,'Vector']]],
+  ['setvec_1',['setVec',['../classQuaternion.html#a36b2ae719541f722b536787c77a0b4e7',1,'Quaternion']]],
+  ['size_2',['size',['../classVector.html#a65cd000bd486595e3af598f05c70715a',1,'Vector']]],
+  ['squarednorm_3',['squaredNorm',['../classVector.html#a3d8cdce4c12134854e712dbfbb7e03d4',1,'Vector']]],
+  ['sum_4',['sum',['../classVector.html#a4e3284e7b4c939062372bd1592f196c0',1,'Vector']]]
 ];

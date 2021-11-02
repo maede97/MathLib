@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['norm_0',['norm',['../classVector.html#a9cf120d8272b75ce2959968aaf194a50',1,'Vector']]],
-  ['normalize_1',['normalize',['../classVector.html#a57c1787f3dd061b9b49ab2577e43ba82',1,'Vector']]],
-  ['normalized_2',['normalized',['../classVector.html#a249dec0417937b71cc9e4fc225f8fe83',1,'Vector']]]
+  ['max_0',['max',['../classVector.html#ac26a2b6ccfddf66d00d5d62497e2a2b8',1,'Vector']]],
+  ['maxcoeff_1',['maxCoeff',['../classVector.html#ae59997776ad298fabefea98912425256',1,'Vector']]],
+  ['min_2',['min',['../classVector.html#acc9a81e1b2042884e476ac27af86d72d',1,'Vector']]],
+  ['mincoeff_3',['minCoeff',['../classVector.html#ab895860f67581945d8ef645966a7b6dc',1,'Vector']]]
 ];

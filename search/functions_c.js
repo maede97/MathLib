@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_0',['z',['../classVector.html#a49e0775578dec5dab045ddc25e025a82',1,'Vector::z() const'],['../classVector.html#a9708ed7fba7db29d8249adbdf70ea5da',1,'Vector::z()']]]
+  ['w_0',['w',['../classQuaternion.html#a28dd5bd281f233ebdb263369221855e9',1,'Quaternion::w() const'],['../classQuaternion.html#ab7cb9cd44b401e18857e4ff515a32c24',1,'Quaternion::w()']]]
 ];
