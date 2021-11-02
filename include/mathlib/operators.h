@@ -61,4 +61,26 @@ Vector<N, T> operator/(Vector<N, T> a, const Vector<N, T> &b) {
     return a;
 }
 
+template <unsigned N, typename T>
+Vector<N, T> operator+(const T &value, Vector<N, T> v) {
+    v += value;
+    return v;
+}
+template <unsigned N, typename T>
+Vector<N, T> operator-(const T &value, Vector<N, T> v) {
+    v -= value;
+    return -v;
+}
+template <unsigned N, typename T>
+Vector<N, T> operator*(const T &value, Vector<N, T> v) {
+    v *= value;
+    return v;
+}
+
+template <unsigned N, typename T>
+Vector<N, T> operator-(Vector<N, T> v) {
+    v *= T(-1.);
+    return v;
+}
+
 #endif /* __MATHLIB_OPERATORS_H__ */

@@ -49,3 +49,16 @@ TEST(Operators, Inequality) {
     Vector3d v2(1.001, 2., 3.);
     EXPECT_NE(v1, v2);
 }
+
+TEST(Operators, Order) {
+    Vector3d v1(1., 2., 3.);
+    EXPECT_EQ(v1 * 3., 3. * v1);
+    EXPECT_EQ(v1 + 3., 3. + v1);
+    EXPECT_EQ(v1 - 3., -3. + v1);
+    EXPECT_EQ(3. - v1, -v1 + 3.);
+}
+
+TEST(Operators, Negation) {
+    Vector3d v1(1., 2., 3.);
+    EXPECT_EQ(Vector3d(-1., -2., -3.), -v1);
+}

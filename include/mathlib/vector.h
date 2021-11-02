@@ -155,7 +155,7 @@ public:
      * @return The value at idx.
      * @attention Does not perform index boundary checks. Use Vector::at instead.
      */
-    const T operator[](unsigned idx) const {
+    T operator[](unsigned idx) const {
         return m_data[idx];
     }
 
@@ -175,7 +175,7 @@ public:
      * @return The value at idx.
      * @attention Does not perform index boundary checks. Use Vector::at instead.
      */
-    const T operator()(unsigned idx) const {
+    T operator()(unsigned idx) const {
         return m_data[idx];
     }
 
@@ -195,7 +195,7 @@ public:
      * @return The value at idx.
      * @attention Does perform index boundary checks.
      */
-    const T at(unsigned idx) const {
+    T at(unsigned idx) const {
         assert_idx(idx);
         return m_data[idx];
     }
@@ -216,7 +216,7 @@ public:
      * @return The first element.
      * @attention Only for size >= 1.
      */
-    const T x() const {
+    T x() const {
         static_assert(N >= 1 && "x() not supported for vectors with size 0");
         return m_data[0];
     }
@@ -236,7 +236,7 @@ public:
      * @return The second element.
      * @attention Only for size >= 2.
      */
-    const T y() const {
+    T y() const {
         static_assert(N >= 2 && "y() not supported for vectors with size 1 or less");
         return m_data[1];
     }
@@ -256,7 +256,7 @@ public:
      * @return The third element.
      * @attention Only for size >= 3.
      */
-    const T z() const {
+    T z() const {
         static_assert(N >= 3 && "z() not supported for vectors with size 2 or less");
         return m_data[2];
     }
@@ -310,7 +310,7 @@ public:
      * @brief Compute the minimum value of this.
      * @return The minimum value of this.
      */
-    const T min() const {
+    T min() const {
         return *std::min_element(m_data, m_data + N);
     }
 
@@ -318,7 +318,7 @@ public:
      * @brief Compute the maximum value of this.
      * @return The maximum value of this.
      */
-    const T max() const {
+    T max() const {
         return *std::max_element(m_data, m_data + N);
     }
 
