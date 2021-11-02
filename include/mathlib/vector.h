@@ -387,7 +387,7 @@ public:
     /**
      * @brief Multiply this vector by a scalar
      * @param value The scalar
-     * @return A reference to this vector, with this * value.
+     * @return A new vector with this * value.
      */
     Vector operator*(const T &value) const {
         Vector ret;
@@ -399,7 +399,7 @@ public:
     /**
      * @brief Add a scalar to this vector
      * @param value The scalar
-     * @return A reference to this vector, with this + value.
+     * @return A new vector with this + value.
      */
     Vector operator+(const T &value) const {
         Vector ret;
@@ -411,7 +411,7 @@ public:
     /**
      * @brief Subtract a scalar from this vector
      * @param value The scalar
-     * @return A reference to this vector, with this - value.
+     * @return A new vector with this - value.
      */
     Vector operator-(const T &value) const {
         Vector ret;
@@ -423,7 +423,7 @@ public:
     /**
      * @brief Divide this vector by a scalar
      * @param value The scalar
-     * @return A reference to this vector, with this / value.
+     * @return A new vector with this / value.
      * @attention Only for floating point types.
      */
     Vector operator/(const T &value) const {

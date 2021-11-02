@@ -55,7 +55,6 @@ TEST(Operators, Order) {
     EXPECT_EQ(v1 * 3., 3. * v1);
     EXPECT_EQ(v1 + 3., 3. + v1);
     EXPECT_EQ(v1 - 3., -3. + v1);
-    EXPECT_EQ(3. - v1, -v1 + 3.);
 }
 
 TEST(Operators, Negation) {
