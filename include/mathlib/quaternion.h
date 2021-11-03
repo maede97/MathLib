@@ -80,10 +80,10 @@ public:
     Quaternion operator*(const Quaternion& other) const {
         Quaternion ret;
 
-        if (vec().squaredNorm() < 1e-10) {
+        if (vec().squaredNorm() < std::numeric_limits<T>::epsilon()) {
             return other;
         }
-        if (other.vec().squaredNorm() < 1e-10)
+        if (other.vec().squaredNorm() < std::numeric_limits<T>::epsilon())
             return Quaternion(this->x(), this->y(), this->z(), this->w());
 
         ret.setVec(vec().cross(other.vec()) + w() * other.vec() + other.w() * vec());
@@ -98,7 +98,7 @@ public:
      * @return The rotated vector.
      */
     Vector3_t operator*(const Vector3_t& other) const {
-        return other + T(2.) * vec().cross(w() * other + vec().cross(other)) / ((*this).squaredNorm() + 1e-10);
+        return other + T(2.) * vec().cross(w() * other + vec().cross(other)) / ((*this).squaredNorm() + std::numeric_limits<T>::epsilon());
     }
 
     /**
@@ -108,7 +108,7 @@ public:
     Quaternion inverse() const {
         Quaternion ret;
 
-        T inv_norm_s = T(1.) / ((*this).squaredNorm() + 1e-10);
+        T inv_norm_s = T(1.) / ((*this).squaredNorm() + std::numeric_limits<T>::epsilon());
 
         ret.w() = w() * inv_norm_s;
 
@@ -165,7 +165,7 @@ public:
      * @todo Check if the 0-vector fix is valid.
      */
     Vector3_t axis() const {
-        if (vec().squaredNorm() < 1e-10)
+        if (vec().squaredNorm() < std::numeric_limits<T>::epsilon())
             return Vector3_t(1., 0., 0.);
         return vec().normalized();
     }

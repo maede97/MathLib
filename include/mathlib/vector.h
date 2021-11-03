@@ -131,7 +131,7 @@ public:
     void normalize() {
         static_assert(std::is_floating_point<T>::value, "base type is not floating point.");
         T sqN = squaredNorm();
-        T inv_norm = T(1.0) / std::sqrt(sqN + 1e-10);
+        T inv_norm = T(1.0) / std::sqrt(sqN + std::numeric_limits<T>::epsilon());
         for (unsigned i = 0; i < N; ++i)
             m_data[i] = inv_norm * m_data[i];
     }
@@ -147,7 +147,7 @@ public:
         T sqN = squaredNorm();
 
         // This is actually a safe norm, because we add a small term.
-        T inv_norm = T(1.0) / std::sqrt(sqN + 1e-10);
+        T inv_norm = T(1.0) / std::sqrt(sqN + std::numeric_limits<T>::epsilon());
         for (unsigned i = 0; i < N; ++i)
             ret[i] = m_data[i] * inv_norm;
         return ret;
