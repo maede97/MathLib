@@ -60,6 +60,17 @@ public:
     }
 
     /**
+     * @brief Initialize a quaternion from another.
+     * @param other The other quaternion.
+     * @return A reference to this.
+     */
+    Quaternion& operator=(const Quaternion& other) {
+        w() = other.w();
+        setVec(other.vec());
+        return *this;
+    }
+
+    /**
      * @brief Compute multiplication of two quaternions.
      * 
      * This is the same as performing the two rotations.

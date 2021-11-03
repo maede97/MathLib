@@ -41,6 +41,12 @@ TEST(Quaternion, Constructor) {
     EXPECT_DOUBLE_EQ(q5.y(), 0.48603991912240707);
     EXPECT_DOUBLE_EQ(q5.z(), 0.72905987868361066);
     EXPECT_DOUBLE_EQ(q5.w(), -0.41614683654714241);
+
+    q5 = q4;
+    EXPECT_DOUBLE_EQ(q5.x(), 0.);
+    EXPECT_DOUBLE_EQ(q5.y(), 0.);
+    EXPECT_DOUBLE_EQ(q5.z(), 0.);
+    EXPECT_DOUBLE_EQ(q5.w(), 0.);
 }
 
 TEST(Quaternion, QuaternionMultiplication) {
