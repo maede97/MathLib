@@ -111,6 +111,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa1fb674dfe8d6b1cf089cfba525aa647"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQuaternion.html#aa1fb674dfe8d6b1cf089cfba525aa647">~Quaternion</a> ()=default</td></tr>
 <tr class="memdesc:aa1fb674dfe8d6b1cf089cfba525aa647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default deconstructor.  <a href="classQuaternion.html#aa1fb674dfe8d6b1cf089cfba525aa647">More...</a><br /></td></tr>
 <tr class="separator:aa1fb674dfe8d6b1cf089cfba525aa647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e62531064a2c4948488e475ac036090"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQuaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQuaternion.html#a1e62531064a2c4948488e475ac036090">operator=</a> (const <a class="el" href="classQuaternion.html">Quaternion</a> &amp;other)</td></tr>
+<tr class="memdesc:a1e62531064a2c4948488e475ac036090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a quaternion from another.  <a href="classQuaternion.html#a1e62531064a2c4948488e475ac036090">More...</a><br /></td></tr>
+<tr class="separator:a1e62531064a2c4948488e475ac036090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9cdd98eea7e2b6b62c03fece5b30339"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classQuaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classQuaternion.html#aa9cdd98eea7e2b6b62c03fece5b30339">operator*</a> (const <a class="el" href="classQuaternion.html">Quaternion</a> &amp;other) const</td></tr>
 <tr class="memdesc:aa9cdd98eea7e2b6b62c03fece5b30339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute multiplication of two quaternions.  <a href="classQuaternion.html#aa9cdd98eea7e2b6b62c03fece5b30339">More...</a><br /></td></tr>
 <tr class="separator:aa9cdd98eea7e2b6b62c03fece5b30339"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -550,6 +553,43 @@ template&lt;typename T , typename std::enable_if&lt; std::is_floating_point&lt; 
 
 </div>
 </div>
+<a id="a1e62531064a2c4948488e475ac036090" name="a1e62531064a2c4948488e475ac036090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e62531064a2c4948488e475ac036090">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename std::enable_if&lt; std::is_floating_point&lt; T &gt;::value &gt;::<a class="el" href="classVector.html#a9cf78ae1e922a9028ff3e423c8ffbc10">type</a> *  = nullptr&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classQuaternion.html">Quaternion</a> &amp; <a class="el" href="classQuaternion.html">Quaternion</a>&lt; T, &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classQuaternion.html">Quaternion</a>&lt; T, &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize a quaternion from another. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other quaternion. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to this. </dd></dl>
+
+</div>
+</div>
 <a id="aa9cdd98eea7e2b6b62c03fece5b30339" name="aa9cdd98eea7e2b6b62c03fece5b30339"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9cdd98eea7e2b6b62c03fece5b30339">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
 
@@ -847,7 +887,7 @@ template&lt;typename T , typename std::enable_if&lt; std::is_floating_point&lt; 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 2 2021 18:56:10 for MathLib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Wed Nov 3 2021 08:32:46 for MathLib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>

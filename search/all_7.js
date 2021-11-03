@@ -12,8 +12,9 @@ var searchData=
   ['operator_2f_9',['operator/',['../operators_8h.html#a45dc68916e79767b25b5d54ad59fcf72',1,'operator/():&#160;operators.h'],['../classVector.html#a8060ac83dcb18225c79f2d5920d66a6a',1,'Vector::operator/(const T &amp;value) const']]],
   ['operator_2f_3d_10',['operator/=',['../classVector.html#a8b702bc6086fad9c28b6a44151ac415d',1,'Vector']]],
   ['operator_3c_3c_11',['operator&lt;&lt;',['../classVector.html#af70efaaa634be50854cbd7b03de9f592',1,'Vector::operator&lt;&lt;()'],['../classVector.html#a8a01cfbd8953079c8a2a5407de6ed59b',1,'Vector::operator&lt;&lt;(T value)']]],
-  ['operator_3d_3d_12',['operator==',['../classVector.html#aa2f69cc1769ea3478fa3fef3fd9a252c',1,'Vector']]],
-  ['operator_3e_3e_13',['operator&gt;&gt;',['../classVector.html#a5daa6817d1abd1f7497b43a9a723cab2',1,'Vector']]],
-  ['operator_5b_5d_14',['operator[]',['../classVector.html#a1866773dbc0679a6474a3c43f3d56aa1',1,'Vector::operator[](unsigned idx) const'],['../classVector.html#a4f3c53a61bdf7e506251dc02c8efc8d3',1,'Vector::operator[](unsigned idx)']]],
-  ['operators_2eh_15',['operators.h',['../operators_8h.html',1,'']]]
+  ['operator_3d_12',['operator=',['../classQuaternion.html#a1e62531064a2c4948488e475ac036090',1,'Quaternion']]],
+  ['operator_3d_3d_13',['operator==',['../classVector.html#aa2f69cc1769ea3478fa3fef3fd9a252c',1,'Vector']]],
+  ['operator_3e_3e_14',['operator&gt;&gt;',['../classVector.html#a5daa6817d1abd1f7497b43a9a723cab2',1,'Vector']]],
+  ['operator_5b_5d_15',['operator[]',['../classVector.html#a1866773dbc0679a6474a3c43f3d56aa1',1,'Vector::operator[](unsigned idx) const'],['../classVector.html#a4f3c53a61bdf7e506251dc02c8efc8d3',1,'Vector::operator[](unsigned idx)']]],
+  ['operators_2eh_16',['operators.h',['../operators_8h.html',1,'']]]
 ];
