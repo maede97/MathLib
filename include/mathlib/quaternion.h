@@ -47,6 +47,18 @@ public:
     Quaternion(const Quaternion& other) : Vector<4, T>({other.x(), other.y(), other.z(), other.w()}) {}
 
     /**
+     * @brief Create a quaternion as a rotation from a to b.
+     * @param a The first vector.
+     * @param b The second vector.
+     */
+    Quaternion(const Vector3_t& a, const Vector3_t& b) {
+        Vector3_t c = a.cross(b);
+        setVec(c);
+        w() = a.norm() * b.norm() + a.dot(b);
+        normalize();
+    }
+
+    /**
      * @brief Default deconstructor
      */
     ~Quaternion() = default;
