@@ -301,7 +301,7 @@ public:
      * @return The cross product of this and other.
      * @attention Only for size 3!
      */
-    Vector cross(const Vector &other) {
+    Vector cross(const Vector &other) const {
         static_assert(N == 3 && "cross is only defined for Vectors with size 3.");
         Vector ret;
         ret.x() = m_data[1] * other.z() - m_data[2] * other.y();
