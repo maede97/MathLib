@@ -102,9 +102,9 @@ $(function() {
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classQuaternion.html#ac9d98b6c62e1f8f532d629d1f754e3e3">   54</a></span>    <a class="code hl_function" href="classQuaternion.html#ac9d98b6c62e1f8f532d629d1f754e3e3">Quaternion</a>(<span class="keyword">const</span> <a class="code hl_class" href="classVector.html">Vector3_t</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="classVector.html">Vector3_t</a>&amp; b) {</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_class" href="classVector.html">Vector3_t</a> c = a.<a class="code hl_function" href="classVector.html#abf5c716e89b902950bffaffd68f3f7eb">cross</a>(b);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_function" href="classQuaternion.html#af917a9b46a64433791961916aad869c8">setVec</a>(c);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_function" href="classQuaternion.html#a28dd5bd281f233ebdb263369221855e9">w</a>() = a.<a class="code hl_function" href="classVector.html#a9cf120d8272b75ce2959968aaf194a50">norm</a>() * b.<a class="code hl_function" href="classVector.html#a9cf120d8272b75ce2959968aaf194a50">norm</a>() + a.<a class="code hl_function" href="classVector.html#afd6352ce7d6448bfd0598d1f89f57dbd">dot</a>(b);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_function" href="classVector.html#a57c1787f3dd061b9b49ab2577e43ba82">normalize</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        this-&gt;<a class="code hl_function" href="classQuaternion.html#af917a9b46a64433791961916aad869c8">setVec</a>(c);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        this-&gt;<a class="code hl_function" href="classQuaternion.html#a28dd5bd281f233ebdb263369221855e9">w</a>() = a.<a class="code hl_function" href="classVector.html#a9cf120d8272b75ce2959968aaf194a50">norm</a>() * b.<a class="code hl_function" href="classVector.html#a9cf120d8272b75ce2959968aaf194a50">norm</a>() + a.<a class="code hl_function" href="classVector.html#afd6352ce7d6448bfd0598d1f89f57dbd">dot</a>(b);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        this-&gt;<a class="code hl_function" href="classVector.html#a57c1787f3dd061b9b49ab2577e43ba82">normalize</a>();</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classQuaternion.html#aa1fb674dfe8d6b1cf089cfba525aa647">   64</a></span>    <a class="code hl_function" href="classQuaternion.html#aa1fb674dfe8d6b1cf089cfba525aa647">~Quaternion</a>() = <span class="keywordflow">default</span>;</div>
@@ -215,7 +215,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 6 2021 12:42:14 for MathLib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+Generated on Sat Nov 6 2021 12:44:30 for MathLib by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
 </small></address>
 </body>
 </html>
