@@ -53,9 +53,9 @@ public:
      */
     Quaternion(const Vector3_t& a, const Vector3_t& b) {
         Vector3_t c = a.cross(b);
-        setVec(c);
-        w() = a.norm() * b.norm() + a.dot(b);
-        normalize();
+        this->setVec(c);
+        this->w() = a.norm() * b.norm() + a.dot(b);
+        this->normalize();
     }
 
     /**
